@@ -30,6 +30,7 @@ export function CarrosselCards() {
         axios.get(`${API_URL}/movie/popular?api_key=${API_key}&language=pt-BR`)
             .then(response => {
                 setMovies(response.data.results);
+                console.log(response.data.results);
             })
             .catch(error => {
                 console.log("Error", error);
@@ -68,7 +69,8 @@ export function CarrosselCards() {
                     <div className="!p-4">
                         <h2 className="text-2xl font-bold !mb-2">{movies[modalIndex]?.title}</h2>
                         <p className="text-black"><strong>Nota:</strong> {movies[modalIndex]?.vote_average}</p>
-                        <p className="text-black"><strong>Duração:</strong> {movies[modalIndex]?.runtime || 'N/A'}</p>
+                        <p className="text-black"><strong>Qnt de Pessoas Votantes:</strong> {movies[modalIndex]?.vote_count}</p>
+                        <p className="text-black"><strong>Data de Lançamento:</strong> {movies[modalIndex]?.release_date || 'N/A'}</p>
                         <p className="text-black"><strong>Sinopse:</strong> {movies[modalIndex]?.overview}</p>
                     </div>
                 </Modal>

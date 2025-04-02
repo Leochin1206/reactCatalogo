@@ -2,27 +2,10 @@ import { useState } from "react";
 import { Modal } from "../components/modal";
 import headerSenna from "../assets/headerSenna.jpg"
 import Logo from "../assets/logo.png"
-import arrowBack from "../assets/arrow_back.svg"
-import arrowForward from "../assets/arrow_forward.svg"
 import { CarrosselCards } from "../components/carrosselCards";
 
 export function Catalogo() {
-    const [modalIndex, setModalIndex] = useState(null); // null = nenhum aberto
-    const [startIndex, setStartIndex] = useState(0);
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const filmesPorPagina = 7;
-
-    const proximoSlide = () => {
-        if (startIndex + filmesPorPagina < primeiroCatalogo.length) {
-            setStartIndex(startIndex + 1);
-        }
-    };
-
-    const slideAnterior = () => {
-        if (startIndex > 0) {
-            setStartIndex(startIndex - 1);
-        }
-    };
 
     return (
         <main className="flex flex-col justify-center bg-black !p-6">
@@ -69,7 +52,6 @@ export function Catalogo() {
 
             <h1 className="text-[26px] text-white !mt-8 !mb-4">Catálogo de filmes</h1>
 
-           
             <CarrosselCards />
         </main>
     );
