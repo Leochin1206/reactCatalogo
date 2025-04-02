@@ -1,7 +1,9 @@
+import { CarrosselCards } from "../components/carrosselCards"
+
 export function Home() {
     return(
         <main>
-            Home
+            <CarrosselCards />
         </main>
     )
 }
