@@ -13,7 +13,7 @@ export function CarrosselCards() {
     const [modalIndex, setModalIndex] = useState(null); // null = nenhum aberto
     const [startIndex, setStartIndex] = useState(0);
     const filmesPorPagina = 6;
-    
+
     const proximoSlide = () => {
         if (startIndex + 1 < movies.length - filmesPorPagina + 1) {
             setStartIndex((prevIndex) => prevIndex + 1);
@@ -45,7 +45,7 @@ export function CarrosselCards() {
                 </button>
 
                 <div className="flex gap-4 transition-transform duration-500 ease-in-out"
-                     style={{ transform: `translateX(-${startIndex * 240}px)` }}>
+                    style={{ transform: `translateX(-${startIndex * 240}px)` }}>
                     {movies.map((movie, index) => (
                         <div key={movie.id} className="text-white w-[238px] flex-shrink-0">
                             <Card movie={movie} />
@@ -66,12 +66,20 @@ export function CarrosselCards() {
 
             {modalIndex !== null && movies[modalIndex] && (
                 <Modal isOpen={true} onClose={() => setModalIndex(null)}>
-                    <div className="!p-4">
-                        <h2 className="text-2xl font-bold !mb-2">{movies[modalIndex]?.title}</h2>
-                        <p className="text-black"><strong>Nota:</strong> {movies[modalIndex]?.vote_average}</p>
-                        <p className="text-black"><strong>Qnt de Pessoas Votantes:</strong> {movies[modalIndex]?.vote_count}</p>
-                        <p className="text-black"><strong>Data de Lançamento:</strong> {movies[modalIndex]?.release_date || 'N/A'}</p>
-                        <p className="text-black"><strong>Sinopse:</strong> {movies[modalIndex]?.overview}</p>
+                    <div className="flex flex-col items-center justify-center !p-4">
+
+                        <div className="flex items-center">
+                            <img />
+
+                            <div className="!ml-5">
+                                <h2 className="text-2xl font-bold text-white !mb-2">{movies[modalIndex]?.title}</h2>
+                                <p className="text-white"><strong>Nota:</strong> {movies[modalIndex]?.vote_average}</p>
+                                <p className="text-white"><strong>Qnt de Pessoas Votantes:</strong> {movies[modalIndex]?.vote_count}</p>
+                                <p className="text-white"><strong>Data de Lançamento:</strong> {movies[modalIndex]?.release_date || 'N/A'}</p>
+                                <p className="text-white"><strong>Sinopse:</strong> {movies[modalIndex]?.overview}</p>
+                            </div>
+                        </div>
+
                     </div>
                 </Modal>
             )}

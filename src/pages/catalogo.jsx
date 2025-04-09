@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Modal } from "../components/modal";
 import headerSenna from "../assets/headerSenna.jpg"
+import bannerSenna from "../assets/Senna-Banner.jpg"
 import Logo from "../assets/logo.png"
 import { CarrosselCards } from "../components/carrosselCards";
 
@@ -31,15 +32,21 @@ export function Catalogo() {
 
                     {isModalOpen && (
                         <Modal isOpen={true} onClose={() => setIsModalOpen(false)}>
-                            <div className="!p-4">
-                                <h2 className="text-2xl font-bold !mb-2">a</h2>
-                                <p className="text-black"><strong>Nota:</strong> b</p>
-                                <p className="text-black"><strong>Duração:</strong> c</p>
-                                <p className="text-black"><strong>Sinopse:</strong> d</p>
-                                <p className="text-black"><strong>Produtor:</strong> e</p>
+                            <div className="flex flex-col items-center justify-center !p-4">
+                                <div className="flex items-center">
+                                    <img src={bannerSenna} className="w-auto h-[300px]" />
+                                    
+                                    <div className="!ml-5">
+                                        <h2 className="text-2xl font-bold text-white !mb-2">Senna (minissérie)</h2>
+                                        <p className="text-white"><strong>Nota: </strong>4.3/5.0</p>
+                                        <p className="text-white"><strong>Duração: </strong>1 Temp / 6 eps</p>
+                                        <p className="text-white"><strong>Sinopse: </strong>A minissérie Senna conta a história de Ayrton Senna, herói brasileiro dentro e fora das pistas da Fórmula 1. Ao longo de seis episódios, a produção mergulha na trajetória do piloto com um olhar intimista acerca de Ayrton, interpretado pelo ator Gabriel Leone, como piloto e como pessoa, contando com a colaboração ativa de sua família no desenvolvimento da série. A trama de Senna se desenrola a partir da largada da carreira do automobilista, partindo para a Europa pela primeira vez para correr na Fórmula Ford, e acompanha sua jornada, entre os desafios das pistas, os movimentos estratégicos nas trocas de escuderia, dos seus relacionamentos e do peso de ser uma figura pública tão significativa para sua terra-natal. A série também retrata o trágico acidente que tirou sua vida e deixou um país inteiro de luto, no Grande Prêmio de San Marino, na Itália.</p>
+                                        <p className="text-white"><strong>Produtor: </strong> Vicente Amorim</p>
+                                    </div>
+                                </div>
                                 <button
                                     onClick={() => setIsModalOpen(false)}
-                                    className="mt-4 bg-red-500 text-white px-4 py-2 rounded hover:bg-red-700"
+                                    className="!mt-5 bg-red-500 text-white px-4 py-2 hover:bg-red-700 w-[200px] h-[40px]"
                                 >
                                     Fechar
                                 </button>
