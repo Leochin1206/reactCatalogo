@@ -8,6 +8,10 @@ import { CarrosselCards } from "../components/carrosselCards";
 export function Catalogo() {
     const [isModalOpen, setIsModalOpen] = useState(false);
 
+    const API_URL1 = 'https://api.themoviedb.org/3/movie/popular';
+    const API_URL2 = 'https://api.themoviedb.org/3/trending/movie/week';
+    const API_URL3 = 'https://api.themoviedb.org/3/movie/now_playing';
+
     return (
         <main className="flex flex-col justify-center bg-black !p-6">
 
@@ -35,7 +39,7 @@ export function Catalogo() {
                             <div className="flex flex-col items-center justify-center !p-4">
                                 <div className="flex items-center">
                                     <img src={bannerSenna} className="w-auto h-[300px]" />
-                                    
+
                                     <div className="!ml-5">
                                         <h2 className="text-2xl font-bold text-white !mb-2">Senna (minissérie)</h2>
                                         <p className="text-white"><strong>Nota: </strong>4.3/5.0</p>
@@ -57,9 +61,17 @@ export function Catalogo() {
 
             </div>
 
-            <h1 className="text-[26px] text-white !mt-8 !mb-4">Catálogo de filmes</h1>
+            <h1 className="text-[26px] text-white !mt-8 !mb-4">Filmes Populares</h1>
 
-            <CarrosselCards />
+            <CarrosselCards API_URL={API_URL1} />
+
+            <h1 className="text-[26px] text-white !mt-8 !mb-4">Populares no momento</h1>
+
+            <CarrosselCards API_URL={API_URL2} />
+
+            <h1 className="text-[26px] text-white !mt-8 !mb-4">Em cartaz</h1>
+
+            <CarrosselCards API_URL={API_URL3} />
         </main>
     );
 }
