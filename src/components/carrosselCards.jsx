@@ -7,9 +7,9 @@ import arrowForward from "../assets/arrow_forward.svg";
 
 const API_key = '0d0a2b99c38be169447fb0d359d54043';
 
-export function CarrosselCards({API_URL}) {
+export function CarrosselCards({ API_URL }) {
     const [movies, setMovies] = useState([]);
-    const [modalIndex, setModalIndex] = useState(null); 
+    const [modalIndex, setModalIndex] = useState(null);
     const [startIndex, setStartIndex] = useState(0);
     const filmesPorPagina = 6;
 
@@ -38,11 +38,12 @@ export function CarrosselCards({API_URL}) {
 
     return (
         <div className="relative flex flex-col items-center w-full">
-            <div className="relative flex items-center w-full max-w-[1800px] overflow-hidden">
-                <button onClick={slideAnterior} className="absolute left-0 top-1/2 transform -translate-y-1/2 z-10 text-white">
-                    <img src={arrowBack} alt="Voltar" />
-                </button>
 
+            <button onClick={slideAnterior} className="absolute left-3 top-1/2 transform -translate-y-1/2 z-10 text-white">
+                <img src={arrowBack} alt="Voltar" />
+            </button>
+
+            <div className="relative flex items-center w-full max-w-[1760px] overflow-hidden">
                 <div className="flex gap-4 transition-transform duration-500 ease-in-out"
                     style={{ transform: `translateX(-${startIndex * 240}px)` }}>
                     {movies.map((movie, index) => (
@@ -57,11 +58,11 @@ export function CarrosselCards({API_URL}) {
                         </div>
                     ))}
                 </div>
-
-                <button onClick={proximoSlide} className="absolute right-0 top-1/2 transform -translate-y-1/2 z-10 text-white">
-                    <img src={arrowForward} alt="Avançar" />
-                </button>
             </div>
+
+            <button onClick={proximoSlide} className="absolute right-0 top-1/2 transform -translate-y-1/2 z-10 text-white">
+                <img src={arrowForward} alt="Avançar" />
+            </button>
 
             {modalIndex !== null && movies[modalIndex] && (
                 <Modal isOpen={true} onClose={() => setModalIndex(null)}>

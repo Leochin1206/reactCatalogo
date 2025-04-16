@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import home from "../assets/home.svg"
 import movie from "../assets/theaters.svg"
 import person from "../assets/person.svg"
+import series from "../assets/series.svg"
 
 export function Navbar() {
 
@@ -13,6 +14,10 @@ export function Navbar() {
         {
             img: movie,
             link: "/Catalogo"
+        }, 
+        {
+            img: series,
+            link: "/CatalogoSeries"
         }, 
         {
             img: person,
